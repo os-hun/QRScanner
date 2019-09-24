@@ -8,7 +8,7 @@ export default class Scan extends Component{
     return(
       <ScrollView style={styles.wrapper}>
         <View style={styles.container}>
-          <Icon name="qrcode" color="#f9ca24" size={80} style={styles.icon} />
+          <Icon name="qrcode" color="#f9e10d" size={80} style={styles.icon} />
           <TouchableOpacity onPress={() => Actions.Camera()} style={styles.button}>
             <Text style={styles.button_text}>QRコードを読み取る</Text>
           </TouchableOpacity>
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     paddingTop: 160,
   },
   button: {
-    backgroundColor: "#f9ca24",
+    backgroundColor: "#f9e10d",
     color: "#fefefe",
     borderRadius: 30,
     width: "70%",

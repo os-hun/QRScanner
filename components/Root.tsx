@@ -18,11 +18,11 @@ export default class Root extends Component{
                 key="Scan"
                 intial={true}
                 navigationBarStyle={styles.border_transparent}
-                component={Scan} title="QRScanner" titleStyle={{color: "#f9ca24"}}
+                component={Scan} title="QRScanner" titleStyle={{color: "#f9e10d"}}
                 icon={NavIcon} icon_name="qrcode" />
               <Scene
                 key="History"
-                navigationBarStyle={styles.border_transparent} titleStyle={{color: "#f9ca24"}}
+                navigationBarStyle={styles.border_transparent} titleStyle={{color: "#f9e10d"}}
                 component={History} title="履歴" icon={NavIcon} icon_name="clockcircleo" />
             </Scene>
             <Scene
@@ -44,14 +44,14 @@ export default class Root extends Component{
 
 export const NavIcon: FC<any> = props => {
   return(
-    <Icon name={props.icon_name} style={{color: props.focused ? "#f9ca24" : "#999"}} size={23} />
+    <Icon name={props.icon_name} style={{color: props.focused ? "#f9e10d" : "#999"}} size={25} />
   )
 }
 
 export const LeftIcon: FC<any> = props => {
   return(
     <TouchableOpacity onPress={props.action}>
-      <Icon name={props.icon_name} color="#f9ca24" style={{paddingLeft: 20}} size={25} />
+      <Icon name={props.icon_name} color="#f9e10d" style={{paddingLeft: 20}} size={25} />
     </TouchableOpacity>
   )
 }
