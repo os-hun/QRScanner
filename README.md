@@ -2,7 +2,7 @@
 **QRScanner**
 
 ## 説明
-QRコードを読み取ってWebViewに表示する
+QRコードを読み取ってWebViewで表示する
 
 ## 環境
 **ReactNative** + **Expo** + **TypeScript**
