@@ -18,7 +18,7 @@ export default class Root extends Component{
                 key="Scan"
                 intial={true}
                 navigationBarStyle={styles.border_transparent}
-                component={Scan} title="スキャン" titleStyle={{color: "#f9ca24"}}
+                component={Scan} title="QRScanner" titleStyle={{color: "#f9ca24"}}
                 icon={NavIcon} icon_name="qrcode" />
               <Scene
                 key="History"
