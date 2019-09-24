@@ -4,8 +4,8 @@ import {StyleSheet, TouchableOpacity} from "react-native";
 import Scan from "./Scan"
 import History from "./History"
 import Camera from "./Camera"
-import Icon from "react-native-vector-icons/AntDesign";
 import Webview from "./Webview";
+import Icon from "react-native-vector-icons/AntDesign";
 
 export default class Root extends Component{
   render() {

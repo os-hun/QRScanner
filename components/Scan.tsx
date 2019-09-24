@@ -1,12 +1,14 @@
 import React, { Component } from "react"
-import {Text, Button, ScrollView, StyleSheet, View, TouchableOpacity} from "react-native";
+import {Text, ScrollView, StyleSheet, View, TouchableOpacity} from "react-native";
 import {Actions} from "react-native-router-flux";
+import Icon from "react-native-vector-icons/AntDesign";
 
 export default class Scan extends Component{
   render() {
     return(
       <ScrollView style={styles.wrapper}>
         <View style={styles.container}>
+          <Icon name="qrcode" color="#f9ca24" size={80} style={styles.icon} />
           <TouchableOpacity onPress={() => Actions.Camera()} style={styles.button}>
             <Text style={styles.button_text}>QRコードを読み取る</Text>
           </TouchableOpacity>
@@ -21,7 +23,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f8fbfe"
   },
   container: {
-    paddingTop: 200,
+    paddingTop: 160,
   },
   button: {
     backgroundColor: "#f9ca24",
@@ -31,19 +33,22 @@ const styles = StyleSheet.create({
     padding: 13,
     marginLeft: "auto",
     marginRight: "auto",
-    shadowColor: "rgba(0, 0, 0, .2)",
+    shadowColor: "rgba(0, 0, 0, .1)",
     shadowOffset: {
       width: 0,
       height: 0,
     },
     shadowRadius: 25,
     shadowOpacity: 1,
-    marginTop: 35,
+    marginTop: 50,
     marginBottom: 40,
   },
   button_text: {
     color: "#fefefe",
     textAlign: "center",
     fontWeight: "bold"
+  },
+  icon: {
+    textAlign: "center"
   }
 })
