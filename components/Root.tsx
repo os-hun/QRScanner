@@ -5,6 +5,7 @@ import Scan from "./Scan"
 import History from "./History"
 import Camera from "./Camera"
 import Icon from "react-native-vector-icons/AntDesign";
+import Webview from "./Webview";
 
 export default class Root extends Component{
   render() {
@@ -29,6 +30,11 @@ export default class Root extends Component{
               component={Camera} title="カメラ" navigationBarStyle={styles.modal_navigation}
               renderLeftButton={LeftIcon} icon_name="close" action={() => Actions.Scan()}
               hideNavBar={false} titleStyle={{color: "#fefefe"}} />
+            <Scene
+              key="Webview"
+              component={Webview} title="Webview" navigationBarStyle={styles.modal_navigation}
+              renderLeftButton={LeftIcon} icon_name="close" action={() => Actions.Scan()}
+              hideNavBar={false} titleStyle={{color: "#f9ca24"}} />
           </Modal>
         </Scene>
       </Router>

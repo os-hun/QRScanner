@@ -1,14 +1,14 @@
 import React, { Component } from "react"
-import {View, Text, Button} from "react-native";
+import {Text, Button, ScrollView} from "react-native";
 import {Actions} from "react-native-router-flux";
 
 export default class Scan extends Component{
   render() {
     return(
-      <View>
+      <ScrollView>
         <Text>Scan</Text>
         <Button title="カメラ" onPress={() => Actions.Camera()}/>
-      </View>
+      </ScrollView>
     )
   }
 }
