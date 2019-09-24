@@ -1,6 +1,6 @@
 import React, {Component, FC} from "react"
 import { Modal, Scene, Router, Actions } from "react-native-router-flux";
-import { StyleSheet } from "react-native";
+import {StyleSheet, TouchableOpacity} from "react-native";
 import Scan from "./Scan"
 import History from "./History"
 import Camera from "./Camera"
@@ -16,17 +16,19 @@ export default class Root extends Component{
               <Scene
                 key="Scan"
                 intial={true}
-                navigationBarStyle={styles.navigation}
-                component={Scan} title="スキャン" icon={NavIcon} icon_name="qrcode" />
+                navigationBarStyle={styles.border_transparent}
+                component={Scan} title="スキャン" titleStyle={{color: "#f9ca24"}}
+                icon={NavIcon} icon_name="qrcode" />
               <Scene
                 key="History"
-                navigationBarStyle={styles.navigation}
+                navigationBarStyle={styles.border_transparent} titleStyle={{color: "#f9ca24"}}
                 component={History} title="履歴" icon={NavIcon} icon_name="clockcircleo" />
             </Scene>
             <Scene
               key="Camera"
               component={Camera} title="カメラ" navigationBarStyle={styles.modal_navigation}
-              renderLeftButton={NavIcon} icon_name="close" action={() => Actions.Scan()} />
+              renderLeftButton={LeftIcon} icon_name="close" action={() => Actions.Scan()}
+              hideNavBar={false} titleStyle={{color: "#fefefe"}} />
           </Modal>
         </Scene>
       </Router>
@@ -36,20 +38,24 @@ export default class Root extends Component{
 
 export const NavIcon: FC<any> = props => {
   return(
-    <Icon name={props.icon_name} style={{color: props.focused ? "#f9ca24" : "#999"}}/>
+    <Icon name={props.icon_name} style={{color: props.focused ? "#f9ca24" : "#999"}} size={23} />
+  )
+}
+
+export const LeftIcon: FC<any> = props => {
+  return(
+    <TouchableOpacity onPress={props.action}>
+      <Icon name={props.icon_name} color="#f9ca24" style={{paddingLeft: 20}} size={25} />
+    </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
-  navigation: {
-    borderBottomColor: "#eee",
-    color: "#f9ca24",
-  },
   modal_navigation: {
     backgroundColor: "#fefefe",
-    color: "#fefefe"
   },
   border_transparent: {
-    borderBottomColor: "transparent"
+    borderBottomColor: "transparent",
+    borderTopColor: "transparent"
   }
 })
