@@ -34,7 +34,7 @@ export default class Root extends Component{
               key="Webview"
               component={Webview} title="Webview" navigationBarStyle={styles.modal_navigation}
               renderLeftButton={LeftIcon} icon_name="close" action={() => Actions.Scan()}
-              hideNavBar={false} titleStyle={{color: "#f9ca24"}} />
+              hideNavBar={false} titleStyle={{color: "#f9e10d"}} />
           </Modal>
         </Scene>
       </Router>
