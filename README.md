@@ -1,6 +1,9 @@
 ## アプリ名
 **QRScanner**
 
+## 説明
+QRコードを読み取ってWebViewに表示する
+
 ## 環境
 **ReactNative** + **Expo** + **TypeScript**
 
