@@ -1,8 +1,9 @@
 import React, { Component } from "react"
-import { StyleSheet, View } from "react-native";
+import {StyleSheet, TouchableOpacity, View} from "react-native";
 import WebView from "react-native-webview"
 import Modal from "react-native-modal"
 import { MaterialIndicator } from "react-native-indicators";
+import Icon from "react-native-vector-icons/AntDesign";
 
 interface Props {
   uri: string
@@ -10,7 +11,8 @@ interface Props {
 }
 export default class Webview extends Component<Props>{
   state = {
-    isLoading: false
+    isLoading: false,
+    WEBVIEW_REF: "webViewRed"
   }
   onStart = () => {
     this.setState({
@@ -22,6 +24,14 @@ export default class Webview extends Component<Props>{
       isLoading: false
     })
   }
+  goBack = () => {
+    // @ts-ignore
+    this.refs[this.state.WEBVIEW_REF].goBack()
+  }
+  goForward = () => {
+    // @ts-ignore
+    this.refs[this.state.WEBVIEW_REF].goForward()
+  }
   componentWillMount(): void {
    this.props.navigation.setParams({
      'title': this.props.uri
@@ -30,24 +40,35 @@ export default class Webview extends Component<Props>{
   render() {
     const { uri } = this.props
     return (
-      <WebView
-        source={{ uri: uri }}
-        onLoadStart={this.onStart}
-        onLoadEnd={this.onEnd}
-        javaScriptEnabled={true} >
-        <Modal
-          isVisible={this.state.isLoading}
-          animationIn="fadeIn"
-          animationOut="fadeOut"
-          animationOutTiming={.3}
-          backdropOpacity={.3}
-          style={{margin: "auto"}}
-        >
-          <View style={styles.loading}>
-            <MaterialIndicator color="#333" animationDuration={1800} />
-          </View>
-        </Modal>
-      </WebView>
+      <View style={{flex: 1}}>
+        <WebView
+          source={{ uri: uri }}
+          ref={this.state.WEBVIEW_REF}
+          onLoadStart={this.onStart}
+          onLoadEnd={this.onEnd}
+          javaScriptEnabled={true} >
+          <Modal
+            isVisible={this.state.isLoading}
+            animationIn="fadeIn"
+            animationOut="fadeOut"
+            animationOutTiming={.3}
+            backdropOpacity={.3}
+            style={{margin: "auto"}}
+          >
+            <View style={styles.loading}>
+              <MaterialIndicator color="#333" animationDuration={1800} />
+            </View>
+          </Modal>
+        </WebView>
+        <View style={styles.footer}>
+          <TouchableOpacity onPress={() => this.goBack}>
+            <Icon name="left" color="#f9e10d" size={20} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.goForward}>
+            <Icon name="right" color="#f9e10d" size={20} />
+          </TouchableOpacity>
+        </View>
+      </View>
     );
   }
 }
@@ -60,4 +81,10 @@ const styles = StyleSheet.create({
     marginRight: "auto",
     marginLeft: "auto",
   },
+  footer: {
+    padding: 20,
+    flexDirection: "row",
+    justifyContent: "space-around",
+    backgroundColor: "#fefefe"
+  }
 })
