@@ -3,6 +3,7 @@ import {Text, ScrollView, StyleSheet, View, TouchableOpacity} from "react-native
 import {Actions} from "react-native-router-flux";
 import Icon from "react-native-vector-icons/AntDesign";
 
+// カメラを起動するエリア
 export default class Scan extends Component{
   render() {
     return(

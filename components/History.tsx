@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import {ScrollView, Text, StyleSheet, View} from "react-native";
 
+// 表示履歴を表示する予定
 export default class History extends Component{
   render() {
     return(

@@ -7,6 +7,7 @@ import Camera from "./Camera"
 import Webview from "./Webview";
 import Icon from "react-native-vector-icons/AntDesign";
 
+// ナビゲーションバーのroot を記述
 export default class Root extends Component{
   render() {
     return (
