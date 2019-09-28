@@ -4,6 +4,7 @@ import {Actions} from "react-native-router-flux";
 import * as Permissions from "expo-permissions";
 import {BarCodeScanner} from "expo-barcode-scanner";
 
+// QRコードを読み取る画面
 export default class Camera extends Component{
   state = {
     hasCameraPermission: null,
