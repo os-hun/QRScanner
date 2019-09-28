@@ -9,6 +9,7 @@ interface Props {
   uri: string
   navigation: any,
 }
+// Camera Component で読み取ったQRコードの情報が渡されWebを表示する
 export default class Webview extends Component<Props>{
   state = {
     isLoading: false,
