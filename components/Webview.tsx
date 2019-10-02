@@ -25,13 +25,13 @@ export default class Webview extends Component<Props>{
       isLoading: false
     })
   }
-  goBack = () => {
+  goBack() {
     // @ts-ignore
-    this.refs[this.state.WEBVIEW_REF].goBack()
+    this.refs[WEBVIEW_REF].goBack()
   }
-  goForward = () => {
+  goForward() {
     // @ts-ignore
-    this.refs[this.state.WEBVIEW_REF].goForward()
+    this.refs[WEBVIEW_REF].goForward()
   }
   componentWillMount(): void {
    this.props.navigation.setParams({
@@ -61,11 +61,11 @@ export default class Webview extends Component<Props>{
             </View>
           </Modal>
         </WebView>
-        <View style={[styles.footer, {paddingBottom: 80}]}>
-          <TouchableOpacity onPress={() => this.goBack}>
+        <View style={[styles.footer, {paddingBottom: 50}]}>
+          <TouchableOpacity onPress={() => this.goBack.bind(this)}>
             <Icon name="left" color="#f9e10d" size={20} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.goForward}>
+          <TouchableOpacity onPress={() => this.goForward.bind(this)}>
             <Icon name="right" color="#f9e10d" size={20} />
           </TouchableOpacity>
         </View>
